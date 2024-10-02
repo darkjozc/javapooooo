@@ -339,7 +339,7 @@ public class Calculadora extends javax.swing.JPanel {
             }
             this.tfResultado.setText(String.valueOf(resultado));
         
-    }
+    }   
     
     
     private void tfResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfResultadoActionPerformed
