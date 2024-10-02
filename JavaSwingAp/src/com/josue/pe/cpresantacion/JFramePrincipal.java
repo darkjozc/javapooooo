@@ -4,6 +4,8 @@
  */
 package com.josue.pe.cpresantacion;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Alumno-PB203
@@ -26,58 +28,92 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        btnMenuCalculadora = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        btnMenuContador = new javax.swing.JMenuItem();
+        principal = new javax.swing.JPanel();
+        btn = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        btnMenuCalculadora = new javax.swing.JMenu();
+        btncalculadora = new javax.swing.JMenuItem();
+        btnMenuContador = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 0, 0));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jMenuBar1.setForeground(new java.awt.Color(204, 0, 51));
-        jMenuBar1.setToolTipText("");
-        jMenuBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jMenuBar1.setOpaque(true);
+        javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
+        principal.setLayout(principalLayout);
+        principalLayout.setHorizontalGroup(
+            principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1208, Short.MAX_VALUE)
+        );
+        principalLayout.setVerticalGroup(
+            principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+
+        btn.setBackground(new java.awt.Color(255, 0, 0));
+        btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn.setForeground(new java.awt.Color(204, 0, 51));
+        btn.setToolTipText("");
+        btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn.setOpaque(true);
+
+        jMenu2.setText("Edit");
+        btn.add(jMenu2);
 
         btnMenuCalculadora.setText("aplicaciones");
 
-        jMenuItem1.setText("calculadora");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btncalculadora.setText("calculadora");
+        btncalculadora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btncalculadoraActionPerformed(evt);
             }
         });
-        btnMenuCalculadora.add(jMenuItem1);
+        btnMenuCalculadora.add(btncalculadora);
 
         btnMenuContador.setText("contador");
+        btnMenuContador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuContadorActionPerformed(evt);
+            }
+        });
         btnMenuCalculadora.add(btnMenuContador);
 
-        jMenuBar1.add(btnMenuCalculadora);
+        btn.add(btnMenuCalculadora);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(btn);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(principal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void btncalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncalculadoraActionPerformed
+        Calculadora cal = new Calculadora();
+        cal.setSize(400, 677);
+        cal.setLocation(0,0);
+        principal.removeAll();
+        principal.add(cal, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.revalidate();
+        principal.repaint();
+        
+        
+    }//GEN-LAST:event_btncalculadoraActionPerformed
+
+    private void btnMenuContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuContadorActionPerformed
+        
+    }//GEN-LAST:event_btnMenuContadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,10 +151,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar btn;
     private javax.swing.JMenu btnMenuCalculadora;
     private javax.swing.JMenuItem btnMenuContador;
+    private javax.swing.JMenuItem btncalculadora;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }
