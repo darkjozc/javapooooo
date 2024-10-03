@@ -52,7 +52,7 @@ public class Calculadora extends javax.swing.JPanel {
         btnpunto = new javax.swing.JButton();
         btnigual = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 51, 204));
 
         jLabel1.setBackground(new java.awt.Color(153, 0, 153));
         jLabel1.setFont(new java.awt.Font("Kristen ITC", 1, 18)); // NOI18N
@@ -83,6 +83,11 @@ public class Calculadora extends javax.swing.JPanel {
         });
 
         btnce.setText("CE");
+        btnce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnceActionPerformed(evt);
+            }
+        });
 
         btpdivicion.setText("/");
         btpdivicion.addActionListener(new java.awt.event.ActionListener() {
@@ -324,9 +329,17 @@ public class Calculadora extends javax.swing.JPanel {
        
     
     public void numerosOperado(String Sentencia, String simbolo){
+        String[] cortar = Sentencia.split("");
         String[] numero = Sentencia.split(simbolo);
-            float primerNumero = Float.parseFloat(numero[0]);
-            float segundoNumero = Float.parseFloat(numero[1]);
+            float primerNumero = 0;
+            float segundoNumero = 0;
+        if(numero[0].contains(simbolo)){
+             primerNumero = Float.parseFloat(numero[1]);
+             segundoNumero = Float.parseFloat(numero[2]); 
+        }else{
+            primerNumero = Float.parseFloat(numero[0]);
+            segundoNumero = Float.parseFloat(numero[1]);
+        }
             float resultado = 0;
             if(simbolo.equals("\\+")){
                 resultado = primerNumero + segundoNumero;
@@ -351,7 +364,7 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btnporcentajeActionPerformed
 
     private void btncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncActionPerformed
-        // TODO add your handling code here:
+        this.tfResultado.setText(" ");
     }//GEN-LAST:event_btncActionPerformed
 
     private void btnigualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnigualActionPerformed
@@ -364,7 +377,8 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void bntmultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntmultiplicacionActionPerformed
-       this.tfResultado.setText(this.tfResultado.getText()+"*");
+        this.operacion(this.tfResultado.getText()); 
+        this.tfResultado.setText(this.tfResultado.getText()+"*");
     }//GEN-LAST:event_bntmultiplicacionActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
@@ -404,20 +418,31 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btpdivicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btpdivicionActionPerformed
-       this.tfResultado.setText(this.tfResultado.getText()+"/");
+        this.operacion(this.tfResultado.getText()); 
+        this.tfResultado.setText(this.tfResultado.getText()+"/");
     }//GEN-LAST:event_btpdivicionActionPerformed
 
     private void btnrestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestaActionPerformed
-       this.tfResultado.setText(this.tfResultado.getText()+"-");
+   
+        this.operacion(this.tfResultado.getText()); 
+        this.tfResultado.setText(this.tfResultado.getText()+"-");
     }//GEN-LAST:event_btnrestaActionPerformed
 
     private void btnsumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsumaActionPerformed
-       this.tfResultado.setText(this.tfResultado.getText()+"+");
+                this.operacion(this.tfResultado.getText());    
+                this.tfResultado.setText(this.tfResultado.getText()+"+");
     }//GEN-LAST:event_btnsumaActionPerformed
 
     private void btnpuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpuntoActionPerformed
-       this.tfResultado.setText(this.tfResultado.getText()+".");
+        this.operacion(this.tfResultado.getText()); 
+        this.tfResultado.setText(this.tfResultado.getText()+".");
     }//GEN-LAST:event_btnpuntoActionPerformed
+
+    private void btnceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnceActionPerformed
+        int tamanio = this.tfResultado.getText().length();
+        this.tfResultado.setText(this.tfResultado.getText().substring(0,tamanio - 1));
+        
+    }//GEN-LAST:event_btnceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

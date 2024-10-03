@@ -112,6 +112,15 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btncalculadoraActionPerformed
 
     private void btnMenuContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuContadorActionPerformed
+                                          
+        Contador con = new Contador();
+        con.setSize(543, 510);
+        con.setLocation(0,0);
+        principal.removeAll();
+        principal.add(con, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.revalidate();
+        principal.repaint();
         
     }//GEN-LAST:event_btnMenuContadorActionPerformed
 
