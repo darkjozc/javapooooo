@@ -1,7 +1,7 @@
 
 package com.josue.pe.cmodelo;
 
-import java.util.Date;
+///import java.util.Date;
 
 
 public class TipoDocumento {
@@ -11,13 +11,13 @@ public class TipoDocumento {
     private String estado;
     private int orden;
     
-    public TipoDocumento(int idTipoDocumento, String nomnbre, String sigla, String estado, int orden) {
-        this.idTipoDocumento = idTipoDocumento;
-        this.nomnbre = nomnbre;
-        this.sigla = sigla;
-        this.estado = estado;
-        this.orden = orden;
-    }
+   // public TipoDocumento(int idTipoDocumento, String nomnbre, String sigla, String estado, int orden) {
+      //  this.idTipoDocumento = idTipoDocumento;
+      //  this.nomnbre = nomnbre;
+       // this.sigla = sigla;
+       // this.estado = estado;
+       // this.orden = orden;
+   // }
 
     public int getIdTipoDocumento() {
         return idTipoDocumento;

@@ -12,7 +12,7 @@ public class TipoDocumentoDao {
     
     public String agregarTipoDocumento(Connection conn, TipoDocumento tipoDocumento){
         PreparedStatement ps = null;
-        String sql ="INSERT INTO TIPO_DOCUMENTO(NOMBRE, SIGLA, ESTADO, ORDEN)" + "VALUES(?,?,?,?)";
+        String sql ="INSERT INTO TIPODOCUMENTO(NOMBRE, SIGLA, ESTADO, ORDEN)" + "VALUES(?,?,?,?)";
         
         try{
             ps = conn.prepareStatement(sql);
