@@ -1,13 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.josue.pe.cnegocio;
 
-/**
- *
- * @author Alumno-PB203
- */
+import com.josue.pe.cdatosdao.TipoDocumentoDao;
+import com.josue.pe.cmodelo.TipoDocumento;
+import java.sql.Connection;
+import com.josue.pe.db.conexion;
+import java.sql.SQLException;
+
 public class TipoDocumentoBO {
+    public String mensaje;
+    TipoDocumentoDao tdd = new TipoDocumentoDao();
+    
+    public String agregarTipoDocumento (TipoDocumento tipoDocumento) throws SQLException{
+        Connection c =  conexion.getConnection();
+        
+        try {
+            mensaje = tdd.agregarTipoDocumento(c, tipoDocumento); 
+            c.commit();
+        } catch (Exception e) {
+            c.rollback();
+        } finally {
+            c.close();
+        }
+        return mensaje;
+    }
     
 }
