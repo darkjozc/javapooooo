@@ -1,6 +1,8 @@
 
 package com.josue.pe.cmodelo;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -14,18 +16,35 @@ public class Persona {
     private String genero;
     private Date fechaNacimiento;
     private String correo;
+      private Date fechaActualizada;
 
-    public Persona(int persona, String nombre, String apellido, String documento, String telefono, String genero, Date fechaNacimiento, String correo) {
-        this.persona = persona;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.documento = documento;
-        this.telefono = telefono;
-        this.genero = genero;
-        this.fechaNacimiento = fechaNacimiento;
-        this.correo = correo;
+  ///  public Persona(int persona, String nombre, String apellido, String documento, String telefono, String genero, Date fechaNacimiento, String correo) {
+     ///   this.persona = persona;
+        ///this.nombre = nombre;
+        ///this.apellido = apellido;
+        ///this.documento = documento;
+        ///this.telefono = telefono;
+        //*this.genero = genero;
+        ///this.fechaNacimiento = fechaNacimiento;
+        //this.correo = correo;
+   /// }
+
+    public String getFechaActualizada() {
+        SimpleDateFormat dt = new SimpleDateFormat ("dd-MM-yyyy");
+       return dt.format(fechaActualizada);
     }
 
+    public void setFechaActualizada(String fechaActualizada) throws ParseException {
+        SimpleDateFormat dt = new SimpleDateFormat ("dd-MM-yyyy");
+
+        this.fechaActualizada = dt.parse(fechaActualizada);
+    }
+
+   
+  
+    
+      
+      
     public int getPersona() {
         return persona;
     }

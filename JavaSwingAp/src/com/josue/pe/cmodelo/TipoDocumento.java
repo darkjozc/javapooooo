@@ -4,12 +4,19 @@ package com.josue.pe.cmodelo;
 ///import java.util.Date;
 
 
+
+
+
 public class TipoDocumento {
     private int idTipoDocumento;
-    private String nomnbre;
+    private String nombre;
     private String sigla;
     private String estado;
     private int orden;
+    /////
+
+
+    
     
    // public TipoDocumento(int idTipoDocumento, String nomnbre, String sigla, String estado, int orden) {
       //  this.idTipoDocumento = idTipoDocumento;
@@ -28,11 +35,11 @@ public class TipoDocumento {
     }
 
     public String getNomnbre() {
-        return nomnbre;
+        return nombre;
     }
 
     public void setNomnbre(String nomnbre) {
-        this.nomnbre = nomnbre;
+        this.nombre = nomnbre;
     }
 
     public String getSigla() {
@@ -58,13 +65,11 @@ public class TipoDocumento {
     public void setOrden(int orden) {
         this.orden = orden;
     }
-    
 
+  
 
-    
-    
-    
-    
+  
+   
 }
     
 

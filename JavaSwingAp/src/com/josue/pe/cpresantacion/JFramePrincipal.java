@@ -34,6 +34,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
         btnMenuCalculadora = new javax.swing.JMenu();
         btncalculadora = new javax.swing.JMenuItem();
         btnMenuContador = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        btnMenuTipoDocumento = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +81,29 @@ public class JFramePrincipal extends javax.swing.JFrame {
         btnMenuCalculadora.add(btnMenuContador);
 
         btn.add(btnMenuCalculadora);
+
+        jMenu1.setText("mantenimientp");
+
+        btnMenuTipoDocumento.setText("Tio Documento");
+        btnMenuTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuTipoDocumentoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(btnMenuTipoDocumento);
+
+        jMenuItem2.setText("Persona");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Genero");
+        jMenu1.add(jMenuItem3);
+
+        btn.add(jMenu1);
 
         setJMenuBar(btn);
 
@@ -124,6 +151,23 @@ public class JFramePrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnMenuContadorActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void btnMenuTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTipoDocumentoActionPerformed
+       
+        JpTipoDocumento cal = new JpTipoDocumento();
+        cal.setSize(1100, 600);
+        cal.setLocation(0,0);
+        principal.removeAll();
+        principal.add(cal, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.revalidate();
+        principal.repaint();
+        
+    }//GEN-LAST:event_btnMenuTipoDocumentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -163,8 +207,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar btn;
     private javax.swing.JMenu btnMenuCalculadora;
     private javax.swing.JMenuItem btnMenuContador;
+    private javax.swing.JMenuItem btnMenuTipoDocumento;
     private javax.swing.JMenuItem btncalculadora;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }
