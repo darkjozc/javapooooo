@@ -168,7 +168,7 @@ public class JpTipoDocumento extends javax.swing.JPanel {
             td.setOrden(Integer.parseInt(txtEstado.getText()));
             td.setSigla(txtSigla.getText());
             tdbo.agregarTipoDocumento(td); 
-            
+            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
             listarTipoDocumento();
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
