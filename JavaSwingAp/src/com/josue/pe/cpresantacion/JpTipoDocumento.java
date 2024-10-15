@@ -9,6 +9,7 @@ import com.josue.pe.cnegocio.TipoDocumentoBO;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Alumno-PB203
@@ -16,16 +17,17 @@ import javax.swing.JOptionPane;
 public class JpTipoDocumento extends javax.swing.JPanel {
     TipoDocumentoBO tdbo = new TipoDocumentoBO();
     TipoDocumento td = new TipoDocumento();
+    String idTipoDocumento;
     
     /**
      * Creates new form JpTipoDocumento
      */
-    public JpTipoDocumento() throws SQLException {
+    public JpTipoDocumento() throws SQLException  {
         initComponents();
         listarTipoDocumento();
     }
     
-    public void listarTipoDocumento() throws SQLException{
+    public void listarTipoDocumento() throws SQLException {
         tdbo.listarTipoDocumento(tablaTipoDocumento);
     }
 
@@ -88,11 +90,21 @@ public class JpTipoDocumento extends javax.swing.JPanel {
 
             }
         ));
+        tablaTipoDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaTipoDocumentoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaTipoDocumento);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 107, -1, 370));
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 520, -1, -1));
 
         btnModificar.setText("Modificar");
@@ -181,6 +193,28 @@ public class JpTipoDocumento extends javax.swing.JPanel {
     txtEstado.setText("");
     txtOrden.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void tablaTipoDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaTipoDocumentoMouseClicked
+       int seleccion = tablaTipoDocumento.rowAtPoint(evt.getPoint());
+       idTipoDocumento = tablaTipoDocumento.getValueAt(seleccion, 0)+"";    
+       txtNombre.setText(tablaTipoDocumento.getValueAt(seleccion, 1)+"");
+       txtEstado.setText(tablaTipoDocumento.getValueAt(seleccion, 2)+"");
+       txtSigla.setText(tablaTipoDocumento.getValueAt(seleccion, 3)+"");
+       txtOrden.setText(tablaTipoDocumento.getValueAt(seleccion, 4)+"");
+       
+    }//GEN-LAST:event_tablaTipoDocumentoMouseClicked
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            TipoDocumento tf = new TipoDocumento();
+      tf.setIdTipoDocumento(Integer.parseInt(idTipoDocumento));
+      tdbo.elimiarTipoDocumento(tf);
+      listarTipoDocumento();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"ERROR" + e.getMessage());
+        }
+     
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

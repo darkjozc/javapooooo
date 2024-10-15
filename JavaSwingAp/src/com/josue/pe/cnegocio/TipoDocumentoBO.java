@@ -22,6 +22,7 @@ public String agregarTipoDocumento (TipoDocumento tipoDocumento) throws SQLExcep
             c.commit();
         } catch (Exception e) {
             c.rollback();
+            
         } finally {
             c.close();
         }
@@ -52,20 +53,21 @@ public String modificarTipoDocumento(TipoDocumento tipoDocumento) throws SQLExce
         }
         return mensaje;
     }
-public void listarTipoDocumento(JTable table) throws SQLException{
+public void listarTipoDocumento(JTable table) throws SQLException {
    
         Connection c =  conexion.getConnection();
         
+        
         try {
-             tdd.ListarTipoDocumento(c,table); 
+            tdd.ListarTipoDocumento(c, table);
             
         } catch (Exception e) {
             System.err.println("Error: "+e.getMessage());
-        } finally {
+        } finally{
             c.close();
         }
       
-    }    
+        }
 }
 
 

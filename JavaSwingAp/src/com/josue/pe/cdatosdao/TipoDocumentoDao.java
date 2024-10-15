@@ -1,3 +1,4 @@
+
 package com.josue.pe.cdatosdao;
 
 import com.josue.pe.cmodelo.TipoDocumento;
@@ -88,7 +89,7 @@ public class TipoDocumentoDao {
         String [] columnas = {"ID", "NOMBRE", "SIGLA", "ESTADO", "ORDEN"};
         model = new DefaultTableModel(null,columnas);
         
-        String sql = "SELECT * FROM TIPODOCUMENTO";
+        String sql = "SELECT * FROM TIPODOCUMENTO ORDER BY ORDEN";
         String [] datosTP = new String[5];
         
         try {

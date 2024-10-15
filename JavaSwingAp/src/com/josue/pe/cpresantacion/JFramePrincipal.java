@@ -5,6 +5,9 @@
 package com.josue.pe.cpresantacion;
 
 import java.awt.BorderLayout;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -157,14 +160,20 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     private void btnMenuTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTipoDocumentoActionPerformed
        
-        JpTipoDocumento cal = new JpTipoDocumento();
-        cal.setSize(1100, 600);
+        JpTipoDocumento cal;
+        try {
+            cal = new JpTipoDocumento();
+             cal.setSize(1100, 600);
         cal.setLocation(0,0);
         principal.removeAll();
         principal.add(cal, BorderLayout.CENTER);
         principal.revalidate();
         principal.revalidate();
         principal.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(JFramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
         
     }//GEN-LAST:event_btnMenuTipoDocumentoActionPerformed
 
