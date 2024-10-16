@@ -27,8 +27,7 @@ public class TipoDocumentoDao {
             ps.setString(3, tipoDocumento.getEstado());
             ps.setInt(4, tipoDocumento.getOrden());
             
-        
-           
+
             ps.execute();
             ps.close();
             mensaje ="El tipo documento fue creado corectamente";
@@ -89,7 +88,7 @@ public class TipoDocumentoDao {
         String [] columnas = {"ID", "NOMBRE", "SIGLA", "ESTADO", "ORDEN"};
         model = new DefaultTableModel(null,columnas);
         
-        String sql = "SELECT * FROM TIPODOCUMENTO ORDER BY ORDEN";
+        String sql = "SELECT * FROM TIPODOCUMENTO";
         String [] datosTP = new String[5];
         
         try {
@@ -105,11 +104,11 @@ public class TipoDocumentoDao {
                 
                 datosTP[0] = td.getIdTipoDocumento()+"";
                 datosTP[1] = td.getNomnbre()+"";
-                datosTP[2] = td.getOrden()+"";
-                datosTP[3] = td.getSigla()+"";
+                datosTP[2] = td.getSigla()+"";
+                datosTP[3] = td.getOrden()+"";
                 datosTP[4] = td.getEstado()+"";
                 
-                model.addRow(datosTP);
+                model.addRow(datosTP);  
             }
             table.setModel(model);
         } catch (Exception e) {

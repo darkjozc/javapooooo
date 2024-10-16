@@ -76,6 +76,14 @@
                 <Property name="text" type="java.lang.String" value="Genero"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuPersonaDocumento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pesona Documento"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuPersonaDocumentoActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

@@ -41,6 +41,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         btnMenuTipoDocumento = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuPersonaDocumento = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,6 +107,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jMenuItem3.setText("Genero");
         jMenu1.add(jMenuItem3);
 
+        jMenuPersonaDocumento.setText("Pesona Documento");
+        jMenuPersonaDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuPersonaDocumentoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuPersonaDocumento);
+
         btn.add(jMenu1);
 
         setJMenuBar(btn);
@@ -144,18 +153,18 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void btnMenuContadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuContadorActionPerformed
                                           
         Contador con = new Contador();
+        principal.add(con, BorderLayout.CENTER);
+        principal.revalidate();
         con.setSize(543, 510);
         con.setLocation(0,0);
         principal.removeAll();
-        principal.add(con, BorderLayout.CENTER);
-        principal.revalidate();
         principal.revalidate();
         principal.repaint();
         
     }//GEN-LAST:event_btnMenuContadorActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void btnMenuTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuTipoDocumentoActionPerformed
@@ -176,6 +185,20 @@ public class JFramePrincipal extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_btnMenuTipoDocumentoActionPerformed
+
+    private void jMenuPersonaDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPersonaDocumentoActionPerformed
+        JPPersona cal;
+        cal = new JPPersona();
+        cal.setSize(1100, 600);
+        cal.setLocation(0,0);
+        principal.removeAll();
+        principal.add(cal, BorderLayout.CENTER);
+        principal.revalidate();
+        principal.revalidate();
+        principal.repaint();
+        
+
+    }//GEN-LAST:event_jMenuPersonaDocumentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,6 +245,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuPersonaDocumento;
     private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }

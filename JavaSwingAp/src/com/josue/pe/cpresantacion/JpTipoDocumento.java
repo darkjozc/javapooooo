@@ -107,7 +107,12 @@ public class JpTipoDocumento extends javax.swing.JPanel {
         });
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 520, -1, -1));
 
-        btnModificar.setText("Modificar");
+        btnModificar.setText("Editar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 520, -1, -1));
 
         jLabel3.setText("formulario");
@@ -175,18 +180,36 @@ public class JpTipoDocumento extends javax.swing.JPanel {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try {
+            if(valida()){
             td.setNomnbre(txtNombre.getText());
             td.setEstado(txtEstado.getText());
-            td.setOrden(Integer.parseInt(txtEstado.getText()));
+            td.setOrden(Integer.parseInt(txtOrden.getText()));
             td.setSigla(txtSigla.getText());
             tdbo.agregarTipoDocumento(td); 
-            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
+            JOptionPane.showMessageDialog(null, ": se guardo corectamente");
             listarTipoDocumento();
+            }
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
         }
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+    public boolean valida(){
+        if(txtNombre.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Nombre es requerido!");
+            return false;
+        }else if(txtSigla.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "sigla requerida!");
+            return false;
+        }else if(txtEstado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Estado requerido!");
+            return false;
+        }else if(txtOrden.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Orden requerida!");
+            return false;
+        }
+        return true;
+    }
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
     txtNombre.setText("");
     txtSigla.setText("");
@@ -198,8 +221,8 @@ public class JpTipoDocumento extends javax.swing.JPanel {
        int seleccion = tablaTipoDocumento.rowAtPoint(evt.getPoint());
        idTipoDocumento = tablaTipoDocumento.getValueAt(seleccion, 0)+"";    
        txtNombre.setText(tablaTipoDocumento.getValueAt(seleccion, 1)+"");
-       txtEstado.setText(tablaTipoDocumento.getValueAt(seleccion, 2)+"");
-       txtSigla.setText(tablaTipoDocumento.getValueAt(seleccion, 3)+"");
+       txtSigla.setText(tablaTipoDocumento.getValueAt(seleccion, 2)+"");
+       txtEstado.setText(tablaTipoDocumento.getValueAt(seleccion, 3)+"");
        txtOrden.setText(tablaTipoDocumento.getValueAt(seleccion, 4)+"");
        
     }//GEN-LAST:event_tablaTipoDocumentoMouseClicked
@@ -215,6 +238,24 @@ public class JpTipoDocumento extends javax.swing.JPanel {
         }
      
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        try {
+            if(valida()){
+            td.setIdTipoDocumento(Integer.parseInt(idTipoDocumento));
+            td.setNomnbre(txtNombre.getText());
+            td.setEstado(txtEstado.getText());
+             td.setSigla(txtSigla.getText());
+            td.setOrden(Integer.parseInt(txtOrden.getText()));
+            tdbo.modificarTipoDocumento(td); 
+            listarTipoDocumento();
+            JOptionPane.showMessageDialog(null, ":) se guardo corectamente");
+            
+            }
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Error: al guardar Tipo documento ");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
